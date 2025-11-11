@@ -20,15 +20,36 @@ KREAM 플랫폼의 판매 입찰을 자동화하는 파이썬 프로그램입니
 - 🔔 입찰 성공/실패 알림
 - 📈 통계 및 분석 리포트
 
-## 설치 방법
+## 빠른 시작 (Quick Start)
 
-### 1. 저장소 클론
+### 방법 1: 자동 설치 스크립트 사용 (추천)
 
 ```bash
+# 1. 저장소 클론
+git clone https://github.com/your-username/kream-auto-bidder.git
+cd kream-auto-bidder
+
+# 2. 자동 설치
+chmod +x setup.sh
+./setup.sh
+
+# 3. .env 파일 편집 (KREAM 계정 정보 입력)
+nano .env
+
+# 4. 실행
+./run.sh
+```
+
+### 방법 2: 수동 설치
+
+#### 1. 저장소 클론
+
+```bash
+git clone https://github.com/your-username/kream-auto-bidder.git
 cd kream-auto-bidder
 ```
 
-### 2. 가상환경 생성 및 활성화
+#### 2. 가상환경 생성 및 활성화
 
 ```bash
 # 가상환경 생성
@@ -41,23 +62,43 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### 3. 패키지 설치
+#### 3. 패키지 설치
 
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. 환경 변수 설정
+#### 4. 필요한 디렉토리 생성
 
 ```bash
-cp .env.example .env
-# .env 파일을 열어서 실제 계정 정보 입력
+mkdir -p logs data screenshots
 ```
 
-### 5. 설정 파일 수정
+#### 5. 환경 변수 설정
 
-`config.yaml` 파일에서 입찰 설정을 원하는 대로 수정하세요.
+`.env` 파일을 생성하고 KREAM 계정 정보를 입력하세요:
+
+```bash
+# .env 파일 생성
+cat > .env << 'EOF'
+KREAM_EMAIL=your_email@example.com
+KREAM_PASSWORD=your_password
+EOF
+```
+
+또는 텍스트 에디터로 `.env` 파일을 직접 생성:
+
+```env
+KREAM_EMAIL=your_email@example.com
+KREAM_PASSWORD=your_password
+```
+
+⚠️ **주의**: `.env` 파일은 Git에 커밋되지 않습니다. 각 컴퓨터에서 직접 생성해야 합니다.
+
+#### 6. 설정 파일 확인
+
+`config.yaml` 파일에서 입찰 설정을 원하는 대로 수정하세요 (선택사항).
 
 ## 사용 방법
 
