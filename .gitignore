@@ -38,6 +38,10 @@ screenshots/
 *.swo
 .cursor/
 
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
 # OS
 .DS_Store
 Thumbs.db

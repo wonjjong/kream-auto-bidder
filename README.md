@@ -14,11 +14,13 @@ KREAM 플랫폼의 판매 입찰을 자동화하는 파이썬 프로그램입니
 
 ## 기능
 
+- 🌐 **직관적인 웹 UI** (Streamlit 기반)
 - 🔍 상품 가격 실시간 모니터링
 - 💰 자동 판매 입찰
-- 📊 가격 변동 추적 및 저장
+- 📊 가격 변동 추적 및 차트 시각화
 - 🔔 입찰 성공/실패 알림
 - 📈 통계 및 분석 리포트
+- 📥 데이터 내보내기 (CSV)
 
 ## 빠른 시작 (Quick Start)
 
@@ -102,22 +104,56 @@ KREAM_PASSWORD=your_password
 
 ## 사용 방법
 
-### 가격 모니터링
+### 🌐 방법 1: 웹 UI 사용 (추천)
+
+웹 브라우저에서 편리하게 사용할 수 있는 UI를 제공합니다.
+
+```bash
+# 웹 UI 실행
+chmod +x run_ui.sh
+./run_ui.sh
+
+# 또는 직접 실행
+streamlit run app.py
+```
+
+**🔧 개발 모드 (코드 수정 시 자동 반영):**
+
+```bash
+# 개발 모드로 실행 (추천)
+chmod +x run_ui_dev.sh
+./run_ui_dev.sh
+```
+
+개발 모드에서는 코드를 저장하면 자동으로 페이지가 새로고침됩니다! 🔄
+
+웹 브라우저에서 `http://localhost:8501` 이 자동으로 열립니다.
+
+**웹 UI 기능:**
+- 🔍 실시간 가격 모니터링 및 차트
+- 💰 자동 입찰 설정 및 실행
+- 📊 입찰 히스토리 관리
+- ⚙️ 설정 변경
+- 📥 데이터 내보내기 (CSV)
+
+### 💻 방법 2: CLI 사용
+
+#### 전체 프로그램 실행
+
+```bash
+python main.py
+```
+
+#### 가격 모니터링만
 
 ```bash
 python price_monitor.py --product-url "https://kream.co.kr/products/xxxxx"
 ```
 
-### 자동 입찰 실행
+#### 자동 입찰만
 
 ```bash
 python auto_bidder.py --product-url "https://kream.co.kr/products/xxxxx" --size 270
-```
-
-### 전체 프로그램 실행
-
-```bash
-python main.py
 ```
 
 ## 프로젝트 구조
@@ -127,14 +163,20 @@ kream-auto-bidder/
 ├── venv/                    # 가상환경
 ├── logs/                    # 로그 파일
 ├── data/                    # 수집된 데이터
+├── screenshots/             # 스크린샷
 ├── config.yaml             # 설정 파일
 ├── .env                    # 환경 변수 (계정 정보)
+├── .gitignore              # Git 제외 파일
 ├── requirements.txt        # 필요한 패키지
-├── main.py                 # 메인 실행 파일
+├── app.py                  # 🌐 웹 UI (Streamlit)
+├── main.py                 # 메인 실행 파일 (CLI)
 ├── kream_crawler.py        # KREAM 크롤러
 ├── auto_bidder.py          # 자동 입찰 모듈
 ├── price_monitor.py        # 가격 모니터링
 ├── utils.py                # 유틸리티 함수
+├── setup.sh                # 설치 스크립트
+├── run.sh                  # CLI 실행 스크립트
+├── run_ui.sh               # 웹 UI 실행 스크립트
 └── README.md               # 프로젝트 설명
 ```
 
