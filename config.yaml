@@ -1,0 +1,28 @@
+# KREAM 자동 입찰 설정 파일
+
+# 브라우저 설정
+browser:
+  headless: false  # true로 설정하면 브라우저 창이 표시되지 않음
+  implicit_wait: 10
+  page_load_timeout: 30
+
+# 크롤링 설정
+crawler:
+  check_interval: 60  # 가격 체크 주기 (초)
+  request_delay: 2    # 요청 간 대기 시간 (초)
+  max_retries: 3      # 최대 재시도 횟수
+
+# 입찰 설정
+bidding:
+  auto_bid: true      # 자동 입찰 활성화
+  min_price: 50000    # 최소 입찰 가격
+  max_price: 200000   # 최대 입찰 가격
+  target_price: 100000 # 목표 입찰 가격
+  price_step: 1000    # 가격 단위
+
+# 알림 설정
+notification:
+  enabled: true
+  success_bid: true   # 입찰 성공 시 알림
+  price_drop: true    # 가격 하락 시 알림
+
